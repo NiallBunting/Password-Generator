@@ -1,6 +1,81 @@
-#fullbase64{ color:#bbbbbb; }
-#hash{ color:#bbbbbb; }
-#licence{
-   color:#cccccc;
-   font-size:50%;
+html,body{
+   width:100%;
+   height:100%;
+   margin:auto;
+   position:relative;
+   font-family:Arial, Helvetica, sans-serif;
+}
+h1{
+   padding:3px;
+   margin:0px;
+   color:#000000;
+}
+h2{
+   padding:3px;
+   margin:0px;
+   color:#666666;
+}
+#header{
+   text-align:center;
+   position:relative;
+   top:100px;
+   background:#00ffff;
+}
+
+#footer{
+   color:#666666;
+   font-size:80%;
+   position:absolute;
+   bottom:0;
+   width:100%;
+}
+#content{
+   position:absolute;
+   right:0px;
+   bottom:0px;
+   top:0px;
+   left:0px;
+   width:400px;
+   height:300px;
+   margin:auto;
+   background:#11ff11;
+   text-align:center;
+}
+hr{
+   width:80%;
+}
+table{
+   border:0px;
+}
+
+td{
+  width:33%;
+}
+
+#test{
+   clear:both;
+}
+
+#fullhash{
+   position:absolute;
+   right:0px;
+   bottom:100px;
+   left:0px;
+   width:100%;
+   margin:auto;
+   background:#ff00ff;
+   text-align:center;
+}
+
+#fullha3sh{
+   position:relative;
+   bottom:50px;
+   height:2em;
+   width:40px;
+   color:#bbbbbb;
+   background:#ff00ff;
+}
+
+#boxkeyword, #boxname, #boxsitename, #boxpin{
+   color:#ff0000;
 }

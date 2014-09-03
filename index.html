@@ -1,42 +1,48 @@
+<!DOCTYPE html>
 <html>
 <head>
 <title>Password Generator</title>
-
+<meta charset="UTF-8">
 <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/pbkdf2.js">//https://code.google.com/p/crypto-js/</script>
 <script src="index.js">//The index javascript</script>
 <link href="index.css" rel="stylesheet" type="text/css">
 
 </head>
+<body>
+	<div id="header">
+		<h1>Password Generator</h1></br><h2>Based on data you input.</h2>
+	</div>
 
-<p>
-This website will generate constant passwords based on the following data.
-</p>
+	<div id="content">
+		<p>
+			This website will generate constant passwords based on the following data.
+		</p>
 
-<p>
-<table border="0">
-<form>
-<tr><td>Username</td><td><input type="text" id="name" onkeyup="genOutput();" /></td><td><span id="boxname"> </span></td></tr>
-<tr><td>Master Keyword</td><td><input type="text" id="keyword" onkeyup="genOutput()" /></td><td><span id="boxkeyword"> </span></td></tr>
-<tr><td>Site/App Name</td><td><input type="text" id="sitename" onkeyup="genOutput()" /></td><td><span id="boxsitename"> </span></td></tr>
-<tr><td>Pin</td><td><input type="text" id="pin" onkeyup="genOutput()" /></td><td><span id="boxpin"> </span></td></tr>
-</form>
-</table>
-</p>
+	<form>
+		<table>
+			<tr><td>Username</td><td><input type="text" id="name" placeholder="eg. jimbean" onkeyup="genOutput();" /></td><td><span id="boxname"> </span></td></tr>
+			<tr><td>Master Keyword</td><td><input type="text" id="keyword" placeholder="eg. m&lt;O3@ei93w&amp;te" onkeyup="genOutput()" /></td><td><span id="boxkeyword"> </span></td></tr>
+			<tr><td>Site/App Name</td><td><input type="text" id="sitename" placeholder="eg. facebook.com" onkeyup="genOutput()" /></td><td><span id="boxsitename"> </span></td></tr>
+			<tr><td>Pin</td><td><input type="text" id="pin" onkeyup="genOutput()" /></td><td><span id="boxpin"> </span></td></tr>
+		</table>
+	</form>
 
-<p>
-<div id="data">Where your password will appear.</div>
-<div id="fullbase64"> </div>
-<div id="hash"> </div>
-</p>
+	<div id="data">Fill in the boxes...</div>
 
-<div id="licence">
-<p>
-Copyright &copy; 2014, Niall Bunting <a href="http://niallbunting.com">niallbunting.com</a>
-</p>
-Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
-</p><p>
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-</p>
+
+	</div>
+
+	<div id="fullhash"> 	
+		<div id="fullbase64"> </div>
+		<div id="hash"> </div> 
+	</div>
+
+<div id="footer">
+	<hr/>
+	<p>
+		Copyright &copy; 2014, <a href="http://niallbunting.com">Niall Bunting</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="./licence">Legal Statement</a>
+	</p>
 </div>
 
+</body>
 </html>

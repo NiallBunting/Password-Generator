@@ -17,10 +17,6 @@
 			document.getElementById("hash").innerHTML = "Full Generated Hash: " + hash;
 		}
 
-		//hash all the data into one long string
-		//use that to get some numbers for words
-		//use the data to generate a random word
-
 
 	}
 
