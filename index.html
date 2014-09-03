@@ -1,0 +1,128 @@
+<html>
+<head>
+<title>Password Generator</title>
+
+<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/pbkdf2.js">//https://code.google.com/p/crypto-js/</script>
+<script>
+	function genOutput(){
+
+		if(!nameCheck() | !keywordCheck() | !sitenameCheck() | !pinCheck()){
+			document.getElementById("data").innerHTML = "Waiting for details...";
+			document.getElementById("fullbase64").innerHTML = "";
+			document.getElementById("hash").innerHTML = "";
+		}else{
+			document.getElementById("data").innerHTML = "Calculating...";
+			alert("Calculating could take a couple of seconds. Press OK to start.");
+
+			var alltogether;
+			alltogether = document.getElementById("sitename").value + document.getElementById("name").value + document.getElementById("keyword").value;
+
+			var hash = CryptoJS.PBKDF2(alltogether, document.getElementById("pin").value, { keySize: 512/32, iterations: 500 }) + "";
+			document.getElementById("data").innerHTML = "Generated Password: " + hexToBase64(hash).slice(0, 16);
+			document.getElementById("fullbase64").innerHTML = "Full Base64 Hash :" + hexToBase64(hash);
+			document.getElementById("hash").innerHTML = "Full Generated Hash: " + hash;
+		}
+
+		//hash all the data into one long string
+		//use that to get some numbers for words
+		//use the data to generate a random word
+
+
+	}
+
+	//https://stackoverflow.com/questions/23190056/hex-to-base64-converter-for-javascript
+	function hexToBase64(str) {
+  		return btoa(String.fromCharCode.apply(null,
+   		 str.replace(/\r|\n/g, "").replace(/([\da-fA-F]{2}) ?/g, "0x$1 ").replace(/ +$/, "").split(" "))
+  		);
+	}
+
+
+	function checkFilled(id){
+		var idVal = document.getElementById(id).value;
+		if(idVal.length < 1){
+			return false;
+		}
+		
+		return true;
+	}
+
+	function nameCheck(){
+		if(checkFilled("name") == false){document.getElementById("boxname").innerHTML ="Please fill in a name."; return false;}
+		//passed all checks
+		document.getElementById("boxname").innerHTML ="";
+		return true;
+	}
+
+	function keywordCheck(){
+		if(checkFilled("keyword") == false){document.getElementById("boxkeyword").innerHTML = "Please fill in a Master Password."; return false;}
+		
+		var idVal = document.getElementById("keyword").value;
+		if(idVal.length < 8){document.getElementById("boxkeyword").innerHTML = "Master Password needs to be at least 8 characters long."; return false;}
+		//Passed all checks
+		document.getElementById("boxkeyword").innerHTML ="";
+		return true;
+	}
+
+	function sitenameCheck(){
+		if(checkFilled("sitename") == false){document.getElementById("boxsitename").innerHTML = "Please fill in a site or app name."; return false;}
+		
+		//passed all checks
+		document.getElementById("boxsitename").innerHTML ="";
+		return true;
+	}
+
+	function pinCheck(){
+		if(checkFilled("pin") == false){document.getElementById("boxpin").innerHTML = "Please fill in a pin code."; return false;}
+		if(isNaN(document.getElementById("pin").value)){document.getElementById("boxpin").innerHTML = "Pin code must be a number."; return false;}
+
+		var idVal = document.getElementById("pin").value;
+		if(idVal.length != 6){document.getElementById("boxpin").innerHTML = "Pin needs to be 6 numbers long."; return false;}
+
+		//passed all checks
+		document.getElementById("boxpin").innerHTML ="";
+		return true;
+	}
+
+</script>
+<style>
+#fullbase64{ color:#bbbbbb; }
+#hash{ color:#bbbbbb; }
+</style>
+</head>
+
+<p>
+This website will generate constant passwords based on the following data.
+</p>
+
+<p>
+<table border="0">
+<form>
+<tr><td>Username</td><td><input type="text" id="name" onkeyup="genOutput();" /></td><td><span id="boxname"> </span></td></tr>
+<tr><td>Master Keyword</td><td><input type="text" id="keyword" onkeyup="genOutput()" /></td><td><span id="boxkeyword"> </span></td></tr>
+<tr><td>Site/App Name</td><td><input type="text" id="sitename" onkeyup="genOutput()" /></td><td><span id="boxsitename"> </span></td></tr>
+<tr><td>Pin</td><td><input type="text" id="pin" onkeyup="genOutput()" /></td><td><span id="boxpin"> </span></td></tr>
+</form>
+</table>
+</p>
+
+<p>
+<div id="data">Where your password will appear.</div>
+<div id="fullbase64"> </div>
+<div id="hash"> </div>
+</p>
+
+
+<p>
+Further reading
+<ul>
+	<li>Your master password should be Strong</li>
+	<li>Some sites may not accept all the passwords here, hopefully will add options to avoid this.</li>
+	<li>You need to remember your name, keyword, sitename, pin.</li>
+	<li>You could use a diffrent pin for each site, just write it down somewhere.</li>
+</ul>
+
+</p>
+
+
+</html>
