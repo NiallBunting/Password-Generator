@@ -47,6 +47,35 @@ textarea{
    text-decoration:underline;
 }
 
+#textcontent{
+    padding:20px;
+
+}
+
+/* unvisited link */
+a:link {
+   color:#666666;
+   text-decoration:underline; 
+}
+
+/* visited link */
+a:visited {
+    color:#777777;
+text-decoration:underline;
+}
+
+/* mouse over link */
+a:hover {
+    color: #444444;
+text-decoration:underline;
+}
+
+/* selected link */
+a:active {
+    color: #444444;
+text-decoration:underline;
+}
+
 @media screen and (min-width: 401px) {
    #header{
    text-align:center;
