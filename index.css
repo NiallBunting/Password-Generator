@@ -27,8 +27,24 @@ td{
   width:33%;
 }
 
+textarea{
+   width:80%;
+   resize: none;
+   border:0px;
+}
+
 #boxkeyword, #boxname, #boxsitename, #boxpin{
    color:#ff0000;
+}
+
+#data{
+   font-weight: bold;
+   font-size: 120%;
+}
+
+#showlonghash{
+   color:#666666;
+   text-decoration:underline;
 }
 
 @media screen and (min-width: 401px) {
@@ -58,6 +74,7 @@ td{
 
 
    #fullhash{
+   color:#999999;
    margin-top:10%;
    position:relative;
    margin-left: auto;
@@ -107,6 +124,7 @@ td{
    }
 
    #fullhash{
+   color:#999999;
    padding-top:10px;
    top:0px;
    left:0px;

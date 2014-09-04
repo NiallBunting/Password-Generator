@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div id="header">
-		<h1>Password Generator</h1></br><h2>Based on data you input.</h2>
+		<h1>Password Generator</h1><br/><h2>Based on data you input.</h2>
 	</div>
 
 	<div id="content">
@@ -26,15 +26,18 @@
 			<tr><td>Pin</td><td><input type="text" id="pin" onkeyup="genOutput()" /></td><td><span id="boxpin"> </span></td></tr>
 		</table>
 	</form>
+  
+	<br/>
 
 	<div id="data">Fill in the boxes...</div>
 
 
 	</div>
 
-	<div id="fullhash"> 	
-		<div id="fullbase64"> </div>
-		<div id="hash"> </div> 
+	<div id="fullhash"> 
+                <div id="showlonghash" onclick="showLongHash()">Show Long Hash</div>	
+		<textarea rows="2" id="fullbase64" style="visibility: hidden;" readonly="readonly">The Base 64 Hash Will Be Here.</textarea><br/><br/>
+		<textarea rows="2"  id="hash" style="visibility: hidden;" readonly="readonly">The Full Hash Will Be Here.</textarea>
 	</div>
 
 <div id="footer">

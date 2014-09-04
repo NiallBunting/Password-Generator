@@ -13,7 +13,7 @@
 
 			var hash = CryptoJS.PBKDF2(alltogether, document.getElementById("pin").value, { keySize: 512/32, iterations: 500 }) + "";
 			document.getElementById("data").innerHTML = "Generated Password: " + hexToBase64(hash).slice(0, 16);
-			document.getElementById("fullbase64").innerHTML = "Full Base64 Hash :" + hexToBase64(hash);
+			document.getElementById("fullbase64").innerHTML = "Full Base64 Hash: " + hexToBase64(hash);
 			document.getElementById("hash").innerHTML = "Full Generated Hash: " + hash;
 		}
 
@@ -72,4 +72,21 @@
 		//passed all checks
 		document.getElementById("boxpin").innerHTML ="";
 		return true;
+	}
+	
+ 	var hashshown = 0;
+
+	function showLongHash(){
+
+		if(hashshown != 1234) {
+			document.getElementById("fullbase64").style.visibility = "visible";
+			document.getElementById("hash").style.visibility = "visible";
+			document.getElementById("showlonghash").innerHTML = "Hide Long Hash";
+			hashshown = 1234;
+		} else {
+			document.getElementById("fullbase64").style.visibility = "hidden";
+			document.getElementById("hash").style.visibility = "hidden";
+			document.getElementById("showlonghash").innerHTML = "Show Long Hash";
+			hashshown = 0;		
+		}
 	}
